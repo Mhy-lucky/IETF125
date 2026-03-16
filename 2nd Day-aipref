@@ -1,0 +1,152 @@
+## AIPREF工作组会议精要笔记
+
+> 本笔记整理自AIPREF工作组2026年3月3日内部会议及3月16日IETF 125现场会议内容，记录工作组在制定AI偏好表达标准过程中的核心讨论、争议焦点和技术演进。
+
+
+### 一、会议基础信息
+
+| 项目 | 内容 |
+|------|------|
+| **工作组** | AIPREF (AI Preferences) |
+| **会议时间** | 2026年3月3日（内部会议）/ 3月16日（IETF 125） |
+| **会议性质** | 工作组进展同步 + GitHub Issue 梳理 |
+| **核心任务** | 制定AI偏好表达标准，让网站主能表达“我的内容如何被AI使用”的意愿 |
+
+
+### 二、原文核心内容摘录
+
+#### 2.1 工作组章程定位
+
+> **原文**："The AI reference architecture working group will standardize building blocks to allow for the expression of preferences about how content is collected, and processed for artificial intelligence model development, deployment, and use."
+
+> **原文**："We're not creating a technical enforcement mechanism... We're just allowing people to express their preferences about how things happen."
+
+**关键点**：AIPREF做的是“表达标准”，不是“执行机制”——就像让你能贴个告示，但不保证别人一定遵守。
+
+
+#### 2.2 当前工作状态
+
+> **原文**："We've been paring down the scope of the work until we can come to agreement on the core aspects of the work."
+
+> **原文**："What you're seeing here is after most of that, I think in the last revisions of the drafts, we've taken a lot of the more contentious terms out. So we can focus on refining the semantics of the vocabulary that we're working on."
+
+**关键点**：工作组在主动收缩范围，先做“最小可行产品(MVP)”，再逐步扩展。
+
+
+#### 2.3 核心争议：搜索的定义
+
+> **原文**："Almost all search now has AI undercovers... The real question that's come up is do we really want to talk about this in terms of controls for AI? Or is this more about controls for how search results are presented?"
+
+> **原文**："Pedro cautioned against defining 'traditional search' as not using AI, as modern search engines leverage AI models similarly to generative AI, with the distinction often in presentation (indexing vs. generated text)."
+
+**关键点**：现代搜索引擎普遍使用AI技术，简单二分“AI搜索/非AI搜索”已不现实，讨论转向“呈现方式”的控制。
+
+
+#### 2.4 缺失的环节：RAG和推理
+
+> **原文**："Participants expressed strong agreement that a vocabulary category for post-training AI activities (like RAG, grounding, summarization) is fundamental and missing."
+
+> **原文**："Nate Hick emphasized the critical importance of this, offering to work on a proposal. He highlighted the 'future of the web is at stake' due to implications for monopolistic search engines and content creators."
+
+**关键点**：现有框架缺失“RAG（检索增强生成）”这类先检索再生成的场景，这是目前工作组公认需要填补的空白。
+
+
+#### 2.5 访问 vs 使用的区分
+
+> **原文**："Martin clarified the intent to distinguish between access (crawling governed by robots.txt) and downstream use (where AI preferences apply)."
+
+> **原文**："Timid Robot and Alyssa highlighted the complexity of AI preferences 'traveling' with content for downstream users, especially with conflicting preferences or non-owners, and the difficulty of record-keeping."
+
+**关键点**：明确区分“允许爬虫访问”和“允许用数据训练AI”，但偏好能否“跟着内容走”是待解决的复杂问题。
+
+
+#### 2.6 具体术语争议
+
+| 议题 | 原文 | 争议点 |
+|------|------|--------|
+| **微调(fine-tune)** | "Krishna's concern regarding 'fine-tune' as unnecessary, imprecise, and overly broad" | 是否需要在标准中定义“微调” |
+| **“大”有多大** | "Alyssa questioned the ambiguous terms 'large' and 'very large' in the definition" | 模型参数的量化标准不明确 |
+| **AI的定义** | "Ecker found the current AI definition too broad, potentially sweeping in any statistical technique" | 定义过宽，连简单统计都算进去了 |
+
+
+### 三、达成的共识和决定
+
+| 原文 | 决定 |
+|------|------|
+| "Remove ambiguous quantifying words ('large,' 'very large') from the definition of 'foundation model production'" | ✅ **删除模糊词**：从定义中移除“大”、“非常大”等量化词 |
+| "Chairs to initiate a GitHub wiki page for collecting use cases to help evaluate definitions" | ✅ **收集用例**：建立Wiki页面，让大家提交真实使用场景 |
+| "Editors to sharpen language distinguishing 'access' and 'use'" | ✅ **明确区分**：强化“访问”和“使用”的区分表述 |
+| "Martin to add a new issue to track the complexity of AI preferences 'traveling' with content for downstream users" | ✅ **追踪问题**：新建Issue，跟进“偏好传递”的技术复杂性 |
+
+
+### 四、关键词汇表
+
+| 英文术语 | 中文解释 | 在上下文中的含义 |
+|---------|---------|-----------------|
+| **Preference** | 偏好 | 网站主对数据使用方式的意愿表达，不是强制规则 |
+| **Foundation Model** | 基础模型 | 大规模预训练AI模型（如GPT、Llama） |
+| **Fine-tuning** | 微调 | 在基础模型上用小数据做针对性调整 |
+| **RAG (Retrieval Augmented Generation)** | 检索增强生成 | 先检索相关信息，再生成答案的AI技术 |
+| **Inference** | 推理 | 模型训练完成后，用新输入生成输出的过程 |
+| **Grounding** | 接地/溯源 | 让AI生成内容有可靠来源的过程 |
+| **Downstream Use** | 下游使用 | 数据离开原始来源后的使用场景 |
+| **Vocabulary** | 词汇表 | 工作组定义的标准化术语集合 |
+| **Attachment Mechanism** | 附着机制 | 将偏好附加到内容上的技术方式 |
+| **Conformance** | 符合性 | 实现是否遵循了标准规范 |
+
+
+### 五、我的思考—————没来开会之前一直以为是所有人坐在一起对一个提案进行讨论然后投票达成共识，no，其实更多的是在“吵架”，都想维护个人的利益。IETF是个了不起的组织，倾听那么多人的意见，对互联网做出了极大的贡献。
+
+#### 5.1 标准制定的真实过程
+- **不是专家定稿**，而是多方利益博弈
+- **不是一步到位**，而是先做MVP再迭代
+- **不是技术最优**，而是各方妥协的结果
+
+> **原文印证**："we've taken a lot of the more contentious terms out... focus on refining the semantics"
+
+
+#### 5.2 工程思维的应用****
+- **范围收缩**：砍掉争议大的，做核心的
+- **用例驱动**：用真实场景验证定义
+- **异步协作**：鼓励会前准备，提高会议效率
+
+> **原文印证**："We've been paring down the scope of the work until we can come to agreement on the core aspects"
+
+
+#### 5.3 开放问题的价值
+这些正是未来可以做研究的方向：
+
+| 问题 | 为什么值得研究 |
+|------|---------------|
+| RAG场景的偏好表达如何设计？ | 这是工作组公认的缺失环节 |
+| 偏好如何“跟着内容走”？ | 涉及技术、法律、应用的交叉难题 |
+| 如何区分“搜索”和“AI生成”？ | 定义边界本身就是一个研究课题 |
+| 冲突的偏好如何解决？ | 多来源内容合并时，听谁的？ |
+
+
+#### 5.4 看懂争论背后的立场
+
+当你再听到争论，可以试着判断说话人的立场：
+
+| 立场 | 可能的关注点 |
+|------|-------------|
+| 内容创作者 | 保护版权、控制使用 |
+| 搜索引擎公司 | 避免被排除、保持索引能力 |
+| AI公司 | 获取更多训练数据 |
+| 最终用户 | 使用体验、隐私保护 |
+
+
+### 六、下一步关注点
+
+根据会议决定，后续可以重点关注：
+
+1. **GitHub Wiki的用例收集页面**（看真实场景怎么定义）
+2. **RAG相关的提案**（Nate Hick等人会提交）
+3. **4月多伦多内部会议**（会有深入讨论）
+4. **“访问 vs 使用”区分的措辞修订**（看编辑怎么改）
+
+
+---
+
+**Draft**：2026年3月16日   
+**资料来源**：AIPREF工作组内部会议记录 + IETF 125现场会议
