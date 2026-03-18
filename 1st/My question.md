@@ -5,9 +5,9 @@ I have learned IETF's famous proverb is："We reject: kings, presidents and voti
 
 During Session 3 (Standards Development), I learned from Barry Leiba about IETF's "rough consensus" process. This raised questions about how to determine when consensus is reached and how to handle persistent objections.
 ### My Question：
-- 既然不是投票，怎么判断"rough consensus"已经达成了？
-- 如果有人一直反对，如何决定是继续讨论还是可以推进？
-- "rough consensus"到底在实践中如何运作？
+- 既然不是投票，怎么判断"rough consensus"已经达成了
+- 如果有人一直反对，如何决定是继续讨论还是可以推进
+- "rough consensus"到底在实践中如何运作
 ---
 Then  I went to study the relevant standards,and here are my thoughts and summary.
 
