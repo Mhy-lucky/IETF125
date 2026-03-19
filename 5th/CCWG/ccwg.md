@@ -152,7 +152,7 @@ Recovery（恢复）→ Cruising（巡航）→ Pushing（推进）→ 重复
 
 ### 用 Max RTT和min RTT的区别
 <img width="926" height="382" alt="image" src="https://github.com/user-attachments/assets/db635d8e-90a7-4e65-842f-3c4d141c0885" />
-
+Min RTT更容易反应过度，尤其是在视频这种自己就会制造波动的场景。
 
 ## 六、议题四：Long-haul CNP——长距离网络的拥塞通知
 
